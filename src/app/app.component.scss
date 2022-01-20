@@ -1,0 +1,16 @@
+.cmp-nav-first {
+  display: block;
+  font-size: 24px;
+}
+.cmp-nav-first > ul {
+  display: block;
+  list-style: none;
+}
+.cmp-nav-first > ul > li {
+  display: inline-block;
+  padding: 4px;
+}
+.cmp-nav-first a {
+  color: rgb(240, 144, 54);
+  text-decoration: none;
+}

@@ -1,0 +1,11 @@
+<h2>Display</h2>
+<div class="display-page">
+  <ng-container *ngFor="let items of dataService.getData(); let i = index">
+    <mat-icon class="arrow"> play_arrow </mat-icon>
+    <a [routerLink]="[i]" class="display"
+      ><b>Section {{ i + 1 }} : </b>
+      <span class="value-total">{{ display(items) }}</span></a
+    >
+    <br />
+  </ng-container>
+</div>

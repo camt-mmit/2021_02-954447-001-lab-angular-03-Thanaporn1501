@@ -1,0 +1,29 @@
+<div class="add-sec">
+  <button type="button" (click)="dataService.addSection()">
+    <mat-icon>add</mat-icon><span >Section</span>
+  </button>
+</div>
+<!-- มันเรียก data 2 ครั้งเลยเก็บค่า โดย as data เข้าไปเลย -->
+<div *ngFor="let items of dataService.getData() as data; let i = index">
+  <div class="sec">
+    <h3>Section {{ i + 1 }}</h3>
+    <button
+      type="button"
+      (click)="dataService.removeSection(i)"
+      [disabled]="data.length === 1"
+      class="del-sec"
+    >
+      <mat-icon>remove_circle</mat-icon>
+    </button>
+  </div>
+  <app-example-section-container
+    [items]="items"
+    (update)="dataService.updateItem(i, $event.index, $event.value)"
+    (add)="dataService.addItem(i)"
+    (dalete)="dataService.removeItem(i, $event)"
+  ></app-example-section-container>
+
+  <div class="json">
+    <code>{{ dataService.getData() | json }}</code>
+  </div>
+</div>

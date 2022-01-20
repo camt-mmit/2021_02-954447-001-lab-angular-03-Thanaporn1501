@@ -1,0 +1,9 @@
+<h2>Display Section</h2>
+<div class="display-sec">
+  <ng-container *ngFor="let item of getItems(); let i = index">
+    <mat-icon class="arrow"> play_arrow </mat-icon>
+    <b class="display">Input {{i+1}} :: </b>
+    <span class="value-input-display-sec">{{item.value}}</span>
+    <br>
+  </ng-container>
+</div>
