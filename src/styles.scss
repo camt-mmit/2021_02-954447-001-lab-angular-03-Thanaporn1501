@@ -7,7 +7,7 @@
 html {
   font-family: sans-serif;
   font-size: 16px;
-  padding-left: 350px;
+  padding-left: 330px;
   background-color: rgb(255, 237, 215);
 }
 .head {
@@ -34,10 +34,10 @@ html {
   font-weight: bolder;
   border-radius: 4px;
   background-color: rgb(238, 168, 110);
-  padding: 5px;
+  padding: 14px;
 }
 a.active:hover {
-  color: rgb(255, 208, 79);
+  color: rgb(253, 229, 161);
 }
 input {
   height: 2em;
@@ -63,15 +63,39 @@ input {
   display: flex;
   align-items: center;
 }
-// .add-sec{
+.add-sec{
+  display: flex;
+  align-items: center;
+  background-color: #e67737;
+  border-radius: 8px;
+  font-size: 16px;
+  border: none;
+  color: antiquewhite;
+  transition-duration: 0.4s;
+  padding: 5px;
+}
 
-// }
-// .add-input {
-
-// }
-// .del-input {
-
-// }
+button.add-sec:hover {
+  background-color: rgb(255, 197, 130);
+  color: white;
+}
+.add-input {
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  background-color:  #ff9e5d;
+  border:none;
+  padding: 5px;
+  border-radius: 4px;
+}
+button.add-input:hover {
+  background-color: rgb(255, 164, 104);
+  color: white;
+}
+.input{
+  display: flex;
+  flex-direction: row;
+}
 .del-sec {
   background: none;
   border: none;

@@ -1,8 +1,8 @@
-<div class="add-sec">
-  <button type="button" (click)="dataService.addSection()">
+
+  <button type="button" (click)="dataService.addSection()" class="add-sec">
     <mat-icon>add</mat-icon><span >Section</span>
   </button>
-</div>
+
 <!-- มันเรียก data 2 ครั้งเลยเก็บค่า โดย as data เข้าไปเลย -->
 <div *ngFor="let items of dataService.getData() as data; let i = index">
   <div class="sec">
