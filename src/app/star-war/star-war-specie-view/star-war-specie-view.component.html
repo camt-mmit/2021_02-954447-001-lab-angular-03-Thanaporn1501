@@ -1,0 +1,45 @@
+
+<div class="card">
+  <div class="card-body">
+    <div *ngIf="data; else loading">
+      <div class="row">
+        <p class="col">Name</p>
+        <span class="col">::</span>
+        <p class="col-lg-8">{{ data.name }}</p>
+      </div>
+
+      <div class="row">
+        <p class="col">Average Height  </p>
+        <span class="col">::</span>
+        <p class="col-lg-8">{{ data.average_height   | number: '1.2-2' }} cm</p>
+      </div>
+
+      <div class="row">
+        <p class="col">Average Lifespan </p>
+        <span class="col">::</span>
+        <p class="col-lg-8">{{ data.average_lifespan  | number: '1.2-2' }} years</p>
+      </div>
+
+      <div class="row">
+        <p class="col">Classification </p>
+        <span class="col">::</span>
+        <p class="col-lg-8">{{ data.classification }}</p>
+      </div>
+
+      <div class="row">
+        <p class="col">Designation </p>
+        <span class="col">::</span>
+        <p class="col-lg-8">{{ data.designation }}</p>
+      </div>
+
+      <div class="row">
+        <p class="col">Language  </p>
+        <span class="col">::</span>
+        <p class="col-lg-8">{{ data.language}}</p>
+      </div>
+    </div>
+  </div>
+</div>
+<ng-template #loading>
+  <div>loading...</div>
+</ng-template>

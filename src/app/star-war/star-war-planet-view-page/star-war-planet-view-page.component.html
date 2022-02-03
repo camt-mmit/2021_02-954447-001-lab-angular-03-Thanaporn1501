@@ -1,0 +1,9 @@
+<div class="row mb-2">
+  <div class="col-md-6">
+    <h5>Planet View</h5>
+  </div>
+  <div class="col-md-6 d-flex justify-content-end mb-3">
+    <button type="button" (click)="goBack()" class="btn btn-outline-secondary">Back</button>
+    </div>
+  </div>
+<app-star-war-planet-view [data]="data$ | async"></app-star-war-planet-view>

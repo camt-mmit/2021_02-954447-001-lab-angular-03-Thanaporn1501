@@ -1,16 +1,30 @@
-.cmp-nav-first {
-  display: block;
-  font-size: 24px;
+.head {
+  background-color: rgb(50, 158, 144);
+  color: aliceblue;
+  padding: 8px 0px;
 }
-.cmp-nav-first > ul {
-  display: block;
-  list-style: none;
+.head .nav-link, .title{
+  color: var(--white)!important;
 }
-.cmp-nav-first > ul > li {
-  display: inline-block;
-  padding: 4px;
-}
-.cmp-nav-first a {
-  color: rgb(240, 144, 54);
-  text-decoration: none;
-}
+// ้.title {
+//   cursor: pointer;
+//   margin: auto;
+// }
+// .cmp-nav-first {
+//   color: white;
+// }
+// .cmp-nav-first > ul {
+//   display: block;
+//   list-style: none;
+//   & > li {
+//     display: inline-block;
+//     padding: 0px 20px;
+//     & > a {
+//       list-style: none;
+//       text-decoration: none;
+//       color: rgb(255, 255, 255);
+//     }
+//   }
+// }
+
+

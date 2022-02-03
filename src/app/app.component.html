@@ -1,8 +1,27 @@
 <div class="head">
-  <nav class="cmp-nav-first">
-    <ul>
-      <li><a routerLink="./example"><b>EXAMPLE</b></a></li>
-    </ul>
-  </nav>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <h2 class="title">My Ng3</h2>
+      </div>
+      <div class="col-md-6 d-flex justify-content-end" >
+          <ul class="nav">
+            <li class="nav-item">
+              <a routerLink="./example" class="nav-link"><b>EXAMPLE</b></a>
+            </li>
+            <li class="nav-item">
+              <a routerLink="./my-form" class="nav-link"><b>MY FORM</b></a>
+            </li>
+            <li class="nav-item">
+              <a routerLink="./star-war" class="nav-link"><b>STAR WAR</b></a>
+            </li>
+          </ul>
+
+      </div>
+    </div>
+  </div>
 </div>
-<router-outlet></router-outlet>
+
+<div class="container">
+  <router-outlet></router-outlet>
+</div>

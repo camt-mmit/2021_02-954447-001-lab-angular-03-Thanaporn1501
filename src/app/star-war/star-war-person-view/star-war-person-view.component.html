@@ -1,0 +1,39 @@
+<div class="card">
+  <div class="card-body">
+    <div *ngIf="data; else loading">
+      <div class="row">
+        <p class="col-lg-1">Name</p>
+        <span class="col">::</span>
+        <p class="col-lg-10">{{ data.name }}</p>
+      </div>
+
+      <div class="row">
+        <p class="col-lg-1">Gender</p>
+        <span class="col">::</span>
+        <p class="col-lg-10">{{ data.gender }}</p>
+      </div>
+
+      <div class="row">
+        <p class="col-lg-1">Birth Year</p>
+        <span class="col">::</span>
+        <p class="col-lg-10">{{ data.birth_year }}</p>
+      </div>
+
+      <div class="row">
+        <p class="col-lg-1">Height</p>
+        <span class="col">::</span>
+        <p class="col-lg-10">{{ data.height | number: '1.2-2' }} cm</p>
+      </div>
+
+      <div class="row">
+        <p class="col-lg-1">Mass</p>
+        <span class="col">::</span>
+        <p class="col-lg-10">{{ data.mass | number: '1.2-2' }} kg</p>
+      </div>
+
+    </div>
+  </div>
+</div>
+<ng-template #loading>
+  <div>loading...</div>
+</ng-template>

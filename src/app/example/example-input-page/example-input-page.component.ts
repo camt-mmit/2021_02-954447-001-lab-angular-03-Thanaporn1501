@@ -12,7 +12,6 @@ export class ExampleInputPageComponent implements OnInit {
 
   constructor(public readonly dataService: ExampleDataService){}
 
-
   ngOnInit(): void {
     return;
   }

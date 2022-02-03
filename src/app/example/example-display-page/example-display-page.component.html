@@ -1,11 +1,13 @@
-<h2>Display</h2>
-<div class="display-page">
-  <ng-container *ngFor="let items of dataService.getData(); let i = index">
-    <mat-icon class="arrow"> play_arrow </mat-icon>
-    <a [routerLink]="[i]" class="display"
-      ><b>Section {{ i + 1 }} : </b>
-      <span class="value-total">{{ display(items) }}</span></a
-    >
-    <br />
-  </ng-container>
+<div>
+  <h2>Display</h2>
+  <div class="row-cols-lg-5">
+    <ng-container *ngFor="let items of dataService.getData(); let i = index" class="input-group mb-3">
+      <mat-icon class="arrow col align-middle"> play_arrow </mat-icon>
+      <a [routerLink]="[i]" class="display"
+        ><label class="align-middle">Section {{ i + 1 }}  </label>
+        <span class="ps-2 align-middle">:: {{ display(items) }}</span></a
+      >
+      <br />
+    </ng-container>
+  </div>
 </div>

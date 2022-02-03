@@ -1,0 +1,64 @@
+<div *ngIf="data; else loading">
+  <div class="row mb-2">
+    <div class="col-md-6">
+      <h5>Species List</h5>
+    </div>
+    <div class="col-md-6 d-flex justify-content-end">
+      <div class="btn-group">
+        <button
+          type="button"
+          [disabled]="data.previous === null"
+          (click)="changePage(data.previous!)"
+          class="btn btn-outline-secondary"
+        >
+          previous
+        </button>
+        <button
+          type="button"
+          [disabled]="data.next === null"
+          (click)="changePage(data.next!)"
+          class="btn btn-outline-secondary"
+        >
+          next
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <form class="cmp-search-box" [formGroup]="formGroup" (ngSubmit)="onSearch()">
+    <div class="row">
+      <div class="col-lg-2 d-flex justify-content-between">
+        <p>Specie Name</p>
+        <span>::</span>
+      </div>
+      <div class="col-lg-10">
+        <input
+          type="search"
+          formControlName="search"
+          class="input-people-search form-control text-end"
+          placeholder="Search"
+        />
+      </div>
+    </div>
+
+    <div class="row mb-3">
+      <div class="col-lg-3">
+        <label>Total</label>
+        <span class="colon-total">:: </span>
+      </div>
+      <div class="col">
+        <span class="result-people">{{ data.count }}</span>
+      </div>
+    </div>
+  </form>
+
+  <div *ngFor="let item of data.results" (click)="onItemClick(item.url)">
+    <ul>
+      <li>{{ item.name }}</li>
+    </ul>
+  </div>
+</div>
+
+<ng-template #loading>
+  <div>Loading...</div>
+</ng-template>

@@ -1,0 +1,7 @@
+<app-star-war-planets-list
+  [data]="data$ | async"
+  [search]="search"
+  (searchChange)="onSearch($event)"
+  (itemSelect)="onItemSelect($event)"
+>
+</app-star-war-planets-list>

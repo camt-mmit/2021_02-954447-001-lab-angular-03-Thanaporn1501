@@ -1,0 +1,81 @@
+<div [formGroup]="formGroup">
+  <div class="row mb-3">
+    <div class="cmp-form col-lg-2 d-flex justify-content-between">
+      <label>Name</label>
+      <span>::</span>
+    </div>
+    <div class="col-lg-10">
+      <input formControlName="name" class="form-control" />
+    </div>
+  </div>
+  <div class="row mb-3">
+    <div class="cmp-form col-lg-2 d-flex justify-content-between">
+      <label>Age</label>
+      <span>::</span>
+    </div>
+    <div class="col-lg-10">
+      <input formControlName="age" class="form-control" />
+    </div>
+  </div>
+  <div class="row mb-3">
+    <div class="cmp-form col-lg-2 d-flex justify-content-between">
+      <label>Gender</label>
+      <span>::</span>
+    </div>
+    <div class="col-lg-10">
+      <select formControlName="gender" class="form-control">
+        <option [value]="null">-- Please select --</option>
+        <option [value]="'male'">Male</option>
+        <option [value]="'female'">Female</option>
+      </select>
+    </div>
+  </div>
+  <div class="row mb-3">
+    <div class="cmp-form col-lg-2 d-flex justify-content-between">
+      <label>Address</label>
+      <span>::</span>
+    </div>
+    <div class="col-lg-10">
+      <textarea formControlName="address" class="form-control"></textarea>
+    </div>
+  </div>
+  <div class="mb-3" formArrayName="slibings">
+    <div class="col-lg-10 mb-3">
+      <button
+        type="button"
+        (click)="addSlibing()"
+        class="btn btn-success d-flex"
+      >
+        <mat-icon>add</mat-icon>Slibings
+      </button>
+    </div>
+
+    <div *ngFor="let slibings of slibings.controls; let i = index">
+      <div class="row">
+        <div class="slibing col-lg-2">
+          <label>Slibing {{ i + 1 }}</label>
+          <span class="ps-3">::</span>
+        </div>
+
+        <div class="col-lg-10">
+          <div class="d-flex">
+            <div class="input-group">
+              <input type="text" [formControlName]="i" class="form-control" />
+              <div class="input-group-append">
+                <span
+                  class="input-group-text"
+                  id="basic-addon2"
+                  (click)="deleteSlibing(i)"
+                  ><mat-icon>delete</mat-icon></span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- <code> {{$any(formGroup.get('slibings')).controls }}</code> -->
+    <!-- <code>{{ formGroup.value | json }}</code> -->
+  </div>
+</div>

@@ -1,28 +1,35 @@
-
-  <button type="button" (click)="onAdd()" class="add-input">
+<div class="mb-3">
+  <button type="button" (click)="onAdd()" class="btn btn-success d-flex">
     <mat-icon>add</mat-icon> Input
   </button>
-
+</div>
 <div>
   <ng-container *ngFor="let item of items; let i = index">
-    <div class="input">
-      <label class="input-no">
-        <b>Input {{ i + 1 }}</b>
-        <app-example-input-container
-          [value]="item.value"
-          (update)="onUpdate(i, $event)"
-        ></app-example-input-container>
-      </label>
-
-        <button
-          type="button"
-          (click)="onDelete(i)"
-          [disabled]="items?.length === 1"
-        >
-          <mat-icon>delete_forever</mat-icon>
-        </button>
-
+    <div class="row">
+      <div class="col-lg-1">
+        <label> Input {{ i + 1 }} </label>
+        <span class="ps-2">::</span>
+      </div>
+      <div class="col-lg-10">
+        <div class="d-flex">
+          <div class="input-group">
+            <app-example-input-container
+              [value]="item.value"
+              (update)="onUpdate(i, $event)"
+            ></app-example-input-container>
+            <div class="input-group-append">
+              <span
+                class="input-group-text"
+                id="basic-addon2"
+                (click)="items?.length !== 1 ? onDelete(i) : null"
+                ><mat-icon>delete_forever</mat-icon></span
+              >
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </ng-container>
+  <hr />
 </div>
 <!-- ที่ใส่ ? เพราะ items return ค่า null-->
