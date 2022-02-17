@@ -6,6 +6,7 @@
       <h5>Person List</h5>
     </div>
     <div class="col-md-6 d-flex justify-content-end">
+      <!-- previous next -->
       <div class="btn-group ">
         <button
           type="button"
@@ -13,7 +14,7 @@
           (click)="changePage(data.previous!)"
           class="btn btn-outline-secondary"
         >
-          previous
+          <
         </button>
         <button
           type="button"
@@ -21,7 +22,7 @@
           (click)="changePage(data.next!)"
           class="btn btn-outline-secondary"
         >
-          next
+          >
         </button>
       </div>
     </div>
@@ -55,7 +56,7 @@
   </form>
 
 
-  <div *ngFor="let item of data.results" (click)="onItemClick(item.url)">
+  <div *ngFor="let item of data.results" (click)="onItemClick(item.url)" class="item-list-starwar">
     <ul><li>{{ item.name }}</li></ul>
   </div>
 </div>

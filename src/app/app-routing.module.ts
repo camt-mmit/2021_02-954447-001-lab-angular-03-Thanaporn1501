@@ -18,6 +18,11 @@ const routes: Routes = [
     loadChildren: () =>
       import('./star-war/star-war.module').then((m) => m.StarWarModule),
   },
+  {
+    path: 'google',
+    loadChildren: () =>
+      import('./google/google.module').then((m) => m.GoogleModule),
+  },
 ];
 
 @NgModule({
