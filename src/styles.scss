@@ -39,7 +39,7 @@ html {
   width: 400px;
   text-align: right;
 }
-.input-people-search{
+.input-people-search {
   width: 500px;
 }
 .cmp-form {
@@ -48,19 +48,30 @@ html {
 .slibing {
   align-self: center;
 }
-.colon-total{
+.colon-total {
   padding-left: 155px;
 }
-.result-people{
+.result-people {
   padding-left: 350px;
   text-decoration: double underline;
 }
 
-.cmp-person-list{
+.cmp-person-list {
   margin-top: 5px;
 }
 
-.item-list-starwar:hover{
+.item-list-starwar:hover {
   cursor: pointer;
   color: #179771;
+}
+
+.btn-login {
+  color: #155724;
+  background-color: #c3e6cb;
+  a {
+    text-decoration: none;
+    color: #155724;
+    display: flex;
+    justify-content: center;
+  }
 }
