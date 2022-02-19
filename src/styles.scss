@@ -75,3 +75,15 @@ html {
     justify-content: center;
   }
 }
+
+.list-group-item:hover {
+  background-color: #d1e7dd;
+}
+.btn-create {
+  display: flex;
+  justify-content: center;
+  width: fit-content;
+}
+.btn-submit {
+  padding-left: 5%;
+}

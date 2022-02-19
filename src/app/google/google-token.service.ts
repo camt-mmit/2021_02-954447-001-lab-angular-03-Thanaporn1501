@@ -20,12 +20,16 @@ import {
 } from './models';
 import { arrayBufferToBase64URLencode, randomString, sha256 } from './utils';
 
-const tokenKeyName = 'google-token';
 // เก็บไว้ใน local storage
+const tokenKeyName = 'google-token';
 const codeKeyName = 'google-code-verifier';
+const securityKeyName = 'google-security-token';
+
 const authUrl = 'https://accounts.google.com/o/oauth2/v2/auth';
 const codeUrl = 'https://oauth2.googleapis.com/token';
+
 const randomStringLength = 56;
+const securityTokenLength = 16;
 
 @Injectable({
   providedIn: 'root',
@@ -120,6 +124,10 @@ export class GoogleTokenService {
   getAuthorizationLink(): Observable<string> {
     return this.codeChallenge$.pipe(
       map((codeChallenge) => {
+        const securityToken = randomString(securityTokenLength);
+        localStorage.setItem(codeKeyName, this.codeVerifier);
+        localStorage.setItem(securityKeyName, securityToken);
+
         const url = new URL(authUrl);
 
         url.searchParams.append('client_id', this.configuration.client_id);
@@ -131,11 +139,12 @@ export class GoogleTokenService {
         const scopeText = this.configuration.scopes.join(' ');
 
         url.searchParams.append('scope', scopeText);
-        url.searchParams.append('code_challenge', '');
+        url.searchParams.append('code_challenge', codeChallenge);
         url.searchParams.append('code_challenge_method', 'S256');
 
         const stateParams = new URLSearchParams();
         stateParams.append('internal_redirect_uri', this.router.url);
+        stateParams.append('security_token', securityToken);
         url.searchParams.append('state', stateParams.toString());
 
         /**
@@ -149,24 +158,32 @@ export class GoogleTokenService {
       }),
     );
   }
-  requestAccessToken(code: string): Observable<boolean> {
-    return this.http
-      .post<TokenData>(codeUrl, {
-        client_id: this.configuration.client_id,
-        client_secret: this.configuration.client_secret,
-        code: code,
-        code_verifier: localStorage.getItem(codeKeyName),
-        grant_type: 'authorization_code',
-        redirect_uri: this.configuration.redirect_uri,
-      })
-      .pipe(
-        catchError((err) => {
-          console.error(err);
-          return of(null);
-        }),
-        map((tokenData) => this.setTokenData(tokenData)),
-        map((result) => !!result),
-      );
+  requestAccessToken(
+    code: string,
+    securityToken: string | null,
+  ): Observable<boolean> {
+    const storageSecurityToken = localStorage.getItem(securityKeyName);
+
+    if (storageSecurityToken && storageSecurityToken === securityToken) {
+      return this.http
+        .post<TokenData>(codeUrl, {
+          client_id: this.configuration.client_id,
+          client_secret: this.configuration.client_secret,
+          code: code,
+          code_verifier: localStorage.getItem(codeKeyName),
+          grant_type: 'authorization_code',
+          redirect_uri: this.configuration.redirect_uri,
+        })
+        .pipe(
+          catchError((err) => {
+            console.error(err);
+            return of(null);
+          }),
+          map((tokenData) => this.setTokenData(tokenData)),
+          map((result) => !!result),
+        );
+    }
+    return of(false);
   }
 
   getAccessToken(): Observable<string | null> {

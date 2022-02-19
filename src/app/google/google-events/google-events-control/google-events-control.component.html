@@ -1,0 +1,45 @@
+<h4 class="mb-3">Create Event</h4>
+<ng-container [formGroup]="formGroup">
+  <div class="row mb-3">
+    <div class="col-lg-2 d-flex justify-content-between">
+      <label>Summary</label>
+      <span>::</span>
+    </div>
+    <div class="col-lg-10">
+      <input
+        type="text"
+        formControlName="summary"
+        class="form-control"
+        (blur)="onTouched()"
+      />
+    </div>
+  </div>
+
+  <div class="row mb-3">
+    <div class="col-lg-2 d-flex justify-content-between">
+      <label>Time Range</label>
+      <span>::</span>
+    </div>
+
+    <div class="col-lg-5">
+      <ng-container formGroupName="start">
+        <input
+          type="datetime-local"
+          formControlName="dateTime"
+          class="form-control"
+          (blur)="onTouched()"
+        />
+      </ng-container>
+    </div>
+    <div class="col-lg-5">
+      <ng-container formGroupName="end">
+        <input
+          type="datetime-local"
+          formControlName="dateTime"
+          class="form-control"
+          (blur)="onTouched()"
+        />
+      </ng-container>
+    </div>
+  </div>
+</ng-container>

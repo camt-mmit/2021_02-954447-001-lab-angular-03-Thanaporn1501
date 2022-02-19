@@ -1,7 +1,19 @@
-<div *ngIf="data$ | async as data; else loading">
-  <code>{{ data | json }}</code>
+<div>
+  <a routerLink="create" class="btn btn-outline-dark mb-3 btn-create">
+    <mat-icon>event</mat-icon>
+    Create Event</a
+  >
+</div>
+
+<app-google-events-list [data]="data$ | async"></app-google-events-list>
+
+<!-- <div *ngIf="data$ | async as data; else loading">
+  <a *ngFor="let item of data.items">
+    <h4>{{ item.summary }}</h4>
+    <small>{{ item.start.dateTime }} - {{ item.end.dateTime }}</small>
+  </a>
 </div>
 
 <ng-template #loading>
   <div>loading...</div>
-</ng-template>
+</ng-template> -->

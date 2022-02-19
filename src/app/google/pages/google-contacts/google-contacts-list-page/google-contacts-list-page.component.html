@@ -1,0 +1,9 @@
+<div *ngIf="data$ | async as data; else loading">
+  <a *ngFor="let item of data.totalItems">
+    <h4>{{ item }}</h4>
+  </a>
+</div>
+
+<ng-template #loading>
+  <div>Loading...</div>
+</ng-template>

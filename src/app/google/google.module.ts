@@ -6,13 +6,16 @@ import { GoogleEvevtsListPageComponent } from './pages/google-events/google-evev
 import { GoogleComponent } from './pages/google/google.component';
 import { GoogleAuthorizationPageComponent } from './pages/google-authorization-page/google-authorization-page.component';
 import { MatIconModule } from '@angular/material/icon';
+import { GoogleUiModule } from './google-ui.module';
+import { GoogleContactsListPageComponent } from './pages/google-contacts/google-contacts-list-page/google-contacts-list-page.component';
 
 @NgModule({
   declarations: [
     GoogleEvevtsListPageComponent,
     GoogleComponent,
     GoogleAuthorizationPageComponent,
+    GoogleContactsListPageComponent,
   ],
-  imports: [CommonModule, GoogleRoutingModule, MatIconModule],
+  imports: [CommonModule, GoogleRoutingModule, MatIconModule, GoogleUiModule],
 })
 export class GoogleModule {}
