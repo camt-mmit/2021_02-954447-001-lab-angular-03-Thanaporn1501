@@ -1,9 +1,29 @@
-<div *ngIf="data$ | async as data; else loading">
-  <a *ngFor="let item of data.totalItems">
-    <h4>{{ item }}</h4>
+<div class="row">
+  <div class="col-lg-9">
+    <h4>List Contacts</h4>
+  </div>
+  <div class="col btn-action">
+    <a routerLink="create" class="btn btn-outline-dark mb-3 btn-create">
+      <mat-icon>people</mat-icon>
+      Create</a
+    >
+    <a
+      href="https://contacts.google.com/"
+      class="btn btn-outline-dark mb-3 btn-create"
+    >
+      <mat-icon>launch</mat-icon>
+      Web</a
+    >
+  </div>
+
+  <app-google-contacts-list [data]="data$ | async"></app-google-contacts-list>
+</div>
+<!-- <div *ngIf="data$ | async as data; else loading">
+  <a *ngFor="let item of data.items">
+    <code>{{ data$ }}</code>
   </a>
 </div>
 
 <ng-template #loading>
-  <div>Loading...</div>
-</ng-template>
+  <div>loading...</div>
+</ng-template> -->

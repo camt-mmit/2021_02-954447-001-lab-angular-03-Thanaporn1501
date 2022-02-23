@@ -170,8 +170,6 @@ export function parseEventResource(data: any): EventResource {
   return { ...data };
 }
 export function parseEventList(data: any): EventsList {
-  console.log(data);
-
   return {
     ...data,
     items: (data.items || []).map((data: any) => parseEventResource(data)),

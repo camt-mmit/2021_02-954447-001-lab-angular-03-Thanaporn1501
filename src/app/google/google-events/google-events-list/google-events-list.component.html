@@ -1,11 +1,11 @@
-<div *ngIf="data; else loading">
+<div *ngIf="data; else loading" class="google-list">
   <a
     *ngFor="let item of data.items"
     [href]="item.htmlLink"
     target="_blank"
     class="list-group-item list-group-item-action"
   >
-    <h4>{{ item.summary }}</h4>
+    <h5>{{ item.summary }}</h5>
     <small>{{ item.start.dateTime }} - {{ item.end.dateTime }}</small>
   </a>
 </div>

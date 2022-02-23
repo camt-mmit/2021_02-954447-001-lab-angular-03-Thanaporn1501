@@ -1,4 +1,4 @@
 export * from './services';
 export * from './common';
 export * from './events';
-export * from './contacts';
+export * from './people';

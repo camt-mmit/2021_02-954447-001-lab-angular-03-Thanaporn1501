@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { GoogleContactsService } from 'src/app/google/google-contacts.service';
-import { ContactsList } from 'src/app/google/models';
+import { ContactGroupMembership } from 'src/app/google/models';
 
 @Component({
   selector: 'app-google-contacts-list-page',
@@ -9,7 +9,7 @@ import { ContactsList } from 'src/app/google/models';
   styleUrls: ['./google-contacts-list-page.component.scss'],
 })
 export class GoogleContactsListPageComponent implements OnInit {
-  data$!: Observable<ContactsList>;
+  data$!: Observable<any>;
 
   constructor(private readonly service: GoogleContactsService) {}
 

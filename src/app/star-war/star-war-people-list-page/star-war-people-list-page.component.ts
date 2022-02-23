@@ -22,12 +22,8 @@ export class StarWarPeopleListPageComponent implements OnInit {
   ngOnInit(): void {
     this.search = this.route.snapshot.queryParams;
 
-    console.log(this.route.queryParams);
-
     this.data$ = this.route.queryParams.pipe(
       switchMap((params) => {
-        console.log(params);
-
         this.search = params;
 
         return this.service.getAll(params);

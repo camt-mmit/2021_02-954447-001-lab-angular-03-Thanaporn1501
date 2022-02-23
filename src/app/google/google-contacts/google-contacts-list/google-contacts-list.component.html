@@ -1,0 +1,37 @@
+<div *ngIf="data; else loading" class="google-list list-contact">
+  <a
+    *ngFor="let item of data.connections"
+    target="_blank"
+    class="list-group-item list-group-item-action"
+  >
+    <div class="contact-item d-flex">
+      <img [src]="item.photos[0].url" class="img-contact" />
+
+      <div class="contact-item-detail">
+        <div *ngFor="let name of item.names">
+          <h6>{{ name.displayName }}</h6>
+        </div>
+
+        <div *ngFor="let email of item.emailAddresses">
+          <div class="row contact-label">
+            <b class="col-md-1">Email</b>
+            <b class="col-sm-1 colon-contact-list">::</b>
+            <p class="col">{{ email.value }}</p>
+          </div>
+        </div>
+
+        <div *ngFor="let phone of item.phoneNumbers">
+          <div class="row contact-label">
+            <b class="col-md-1">Phone</b>
+            <b class="col-sm-1 colon-contact-list">::</b>
+            <p class="col">{{ phone.canonicalForm }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </a>
+</div>
+
+<ng-template #loading>
+  <div>loading...</div>
+</ng-template>

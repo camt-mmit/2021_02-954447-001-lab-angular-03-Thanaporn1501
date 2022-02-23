@@ -12,13 +12,12 @@ export class SimpleFormDataService {
     if (textData) {
       this.data = JSON.parse(textData);
     } else {
-      this.data ={};
+      this.data = {};
     }
   }
   //localStorage/application -> inspect on browser
   private updateStorage(): void {
     localStorage.setItem('my-form', JSON.stringify(this.data));
-    console.log(this.data);
   }
   update(data: SimpleFormData): void {
     this.data = data;

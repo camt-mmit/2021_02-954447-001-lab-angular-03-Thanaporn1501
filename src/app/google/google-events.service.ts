@@ -26,6 +26,8 @@ export class GoogleEventsService {
 
     return this.tokenService.getAuthorizationHeader().pipe(
       switchMap((authorizationHeader) => {
+        console.log(authorizationHeader);
+
         if (authorizationHeader) {
           return this.http.get(eventsUrl, {
             headers: {

@@ -1,5 +1,6 @@
 import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { GoogleContactsCreatePageComponent } from './google-contacts/google-contacts-create-page/google-contacts-create-page.component';
 import { GoogleEventCreatePageComponent } from './google-events/google-event-create-page/google-event-create-page.component';
 import { GoogleAuthorizationPageComponent } from './pages/google-authorization-page/google-authorization-page.component';
 import { GoogleContactsListPageComponent } from './pages/google-contacts/google-contacts-list-page/google-contacts-list-page.component';
@@ -17,6 +18,7 @@ const routes: Routes = [
       { path: 'events/create', component: GoogleEventCreatePageComponent },
       { path: '', redirectTo: 'contacts', pathMatch: 'full' },
       { path: 'contacts', component: GoogleContactsListPageComponent },
+      { path: 'contacts/create', component: GoogleContactsCreatePageComponent },
     ],
   },
 ];
