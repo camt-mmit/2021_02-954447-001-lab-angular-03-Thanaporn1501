@@ -1,0 +1,9 @@
+<div class="cmp-component">
+  <h3>Simple Form</h3>
+  <hr />
+  <app-simple-form
+    [data]="dataService.getData()"
+    (update)="dataService.update($event)"
+  >
+  </app-simple-form>
+</div>

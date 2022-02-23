@@ -1,0 +1,62 @@
+<div class="card">
+  <div class="card-body">
+    <div *ngIf="data; else loading">
+      <div class="row">
+        <p class="col">Name</p>
+        <span class="col">::</span>
+        <p class="col-lg-8">{{ data.name }}</p>
+      </div>
+
+      <div class="row">
+        <p class="col">Diameter</p>
+        <span class="col">::</span>
+        <p class="col-lg-8">{{ data.diameter }}</p>
+      </div>
+
+      <div class="row">
+        <p class="col">Rotation Period </p>
+        <span class="col">::</span>
+        <p class="col-lg-8">{{ data.rotation_period | number: '1.2-2' }}</p>
+      </div>
+
+      <div class="row">
+        <p class="col">Orbital Period </p>
+        <span class="col">::</span>
+        <p class="col-lg-8">{{ data.orbital_period  | number: '1.2-2' }}</p>
+      </div>
+
+      <div class="row">
+        <p class="col">Gravity </p>
+        <span class="col">::</span>
+        <p class="col-lg-8">{{ data.gravity}} </p>
+      </div>
+
+      <div class="row">
+        <p class="col">Population </p>
+        <span class="col">::</span>
+        <p class="col-lg-8">{{ data.population  | number: '1.2-2' }} </p>
+      </div>
+
+      <div class="row">
+        <p class="col">Climate </p>
+        <span class="col">::</span>
+        <p class="col-lg-8">{{ data.climate}} </p>
+      </div>
+
+      <div class="row">
+        <p class="col">Terrain </p>
+        <span class="col">::</span>
+        <p class="col-lg-8">{{ data.terrain }} </p>
+      </div>
+
+      <div class="row">
+        <p class="col">Surface water</p>
+        <span class="col">::</span>
+        <p class="col-lg-8">{{ data.surface_water }} </p>
+      </div>
+    </div>
+  </div>
+</div>
+<ng-template #loading>
+  <div>loading...</div>
+</ng-template>

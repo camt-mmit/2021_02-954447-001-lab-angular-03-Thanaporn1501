@@ -1,0 +1,26 @@
+<form [formGroup]="formGroup" (ngSubmit)="onSubmit()">
+  <app-google-events-control
+    formControlName="eventResource"
+  ></app-google-events-control>
+  <div>{{ errorMessage }}</div>
+
+  <div class="row row-cols-auto d-flex justify-content-center">
+    <div class="col">
+      <button
+        type="submit"
+        class="btn btn-success d-flex justify-content-center"
+      >
+        <mat-icon>save </mat-icon> Save
+      </button>
+    </div>
+    <div class="col">
+      <button
+        type="submit"
+        class="btn btn-danger d-flex justify-content-center"
+        (click)="onCancel()"
+      >
+        <mat-icon>cancel </mat-icon> Cancel
+      </button>
+    </div>
+  </div>
+</form>

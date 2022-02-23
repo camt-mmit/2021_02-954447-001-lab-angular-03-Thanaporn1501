@@ -1,0 +1,14 @@
+<div class="cmp-component">
+  <h2>Display Section</h2>
+  <div class="display-sec">
+    <ng-container
+      *ngFor="let item of getItems(); let i = index"
+      class="row mb-3"
+    >
+      <div class="d-flex">
+        <div><mat-icon class="arrow"> play_arrow </mat-icon></div>
+        <div>Input {{ i + 1 }} :: {{ item.value }}</div>
+      </div>
+    </ng-container>
+  </div>
+</div>

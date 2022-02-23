@@ -1,0 +1,29 @@
+<div class="cmp mb-3">
+  <h2 class="mb-3">Google</h2>
+  <div class="row">
+    <nav class="cmp-nav">
+      <ul class="nav">
+        <li class="nav-item">
+          <a routerLink="./events" class="nav-link btn btn-link me-3">Events</a>
+        </li>
+        <li class="nav-item">
+          <a routerLink="./contacts" class="nav-link btn btn-link me-3"
+            >Contacts</a
+          >
+        </li>
+      </ul>
+    </nav>
+  </div>
+</div>
+
+<ng-container [ngSwitch]="tokenReady$ | async">
+  <div *ngSwitchCase="false">
+    <button class="btn btn-login">
+      <a [href]="authorizationLinks$ | async"
+        ><mat-icon>login </mat-icon> Google</a
+      >
+    </button>
+  </div>
+
+  <router-outlet *ngSwitchCase="true"></router-outlet>
+</ng-container>
